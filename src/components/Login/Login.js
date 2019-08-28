@@ -9,7 +9,7 @@ class Login extends PureComponent {
   // на время разработки свой access token можно вставить сюда, чтобы
   // не вводить каждый раз
   state = {
-    key: ''
+    key: '4f5fd492af817d0cceb1571f288ed67ec9332583'
   };
 
   input = React.createRef();
@@ -22,7 +22,10 @@ class Login extends PureComponent {
     const { addApiKey } = this.props;
     const { key } = this.state;
 
-    if (event.key === 'Enter') addApiKey(key);
+    if (event.key === 'Enter') {
+      addApiKey(key);
+      this.setState({ key: '' })
+    }
   };
 
   componentDidMount() {
@@ -33,7 +36,7 @@ class Login extends PureComponent {
     const { isAuthorized } = this.props;
     const { key } = this.state;
 
-    if (isAuthorized) return <Redirect to="/search" />;
+    if (isAuthorized) return <Redirect to="/search" />
 
     return (
       <div className={styles.root}>
