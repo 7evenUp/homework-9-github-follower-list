@@ -7,6 +7,7 @@ class UserInfo extends PureComponent {
   render() {
     const { isLoading, data } = this.props
     
+    if (data === 'Not Found') return <p>User {data}</p>
     if (!data) return <p>Нет информации о пользователе</p>
 
     return (

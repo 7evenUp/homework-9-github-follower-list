@@ -6,10 +6,8 @@ import { withRouter, Redirect } from 'react-router-dom';
 import Input from '../Input';
 
 class Login extends PureComponent {
-  // на время разработки свой access token можно вставить сюда, чтобы
-  // не вводить каждый раз
   state = {
-    key: '4f5fd492af817d0cceb1571f288ed67ec9332583'
+    key: 'f9b6f37d22b1608994e932fa9580d24306a95aff '
   };
 
   input = React.createRef();

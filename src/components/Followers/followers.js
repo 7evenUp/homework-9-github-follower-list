@@ -8,6 +8,7 @@ class Followers extends PureComponent {
   render() {
     const { isLoading, data } = this.props
 
+    if (data === 'Not Found') return <p>User {data}</p>
     if (!data.length) return <p>Нет информации о подписчиках</p>
 
     return (
