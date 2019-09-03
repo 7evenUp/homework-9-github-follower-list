@@ -7,7 +7,7 @@ import Input from '../Input';
 
 class Login extends PureComponent {
   state = {
-    key: 'f9b6f37d22b1608994e932fa9580d24306a95aff '
+    key: '66d7809c389432ada97c48b52c7cae0ecf874187'
   };
 
   input = React.createRef();
