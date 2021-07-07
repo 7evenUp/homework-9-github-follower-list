@@ -5,15 +5,28 @@ import { connect } from 'react-redux';
 
 class UserInfo extends PureComponent {
   render() {
-    // Покажите статус загрузки
-    // Если данные не были загружены - сообщите об этом пользователю
+    const { isLoading, data } = this.props
+    
+    if (data === 'Not Found') return <p>User {data}</p>
+    if (!data) return <p>Нет информации о пользователе</p>
+
     return (
-      <div className={styles.root}>
-        {/* Отобразите данные о пользователе */}
-      </div>
-    );
+      isLoading ? <p>Загрузка информации о пользователе</p> : (
+        <div className={styles.root}>
+          <div className={styles.imageWrapper}>
+            <img src={data.avatar_url} alt="user info" className={styles.image}/>
+          </div>
+          <div>
+            <p className="t-user-name">{data.name}</p>
+            <p className="t-user-bio">{data.bio}</p>
+          </div>
+        </div>
+      )
+    )
   }
 }
 
-// Используйте поля data, isLoading из стейта
-export default connect(state => ({}))(UserInfo);
+export default connect(state => ({
+  isLoading: state.user.isLoading,
+  data: state.user.data
+}))(UserInfo);

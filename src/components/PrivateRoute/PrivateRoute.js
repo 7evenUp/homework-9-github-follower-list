@@ -15,6 +15,8 @@ class PrivateRoute extends PureComponent {
   };
 }
 
-export default connect(state => ({
-  isAuthorized: getIsAuthorized(state)
-}))(PrivateRoute);
+const mapStateToProps = state => (
+  { isAuthorized: getIsAuthorized(state) }
+)
+
+export default connect(mapStateToProps)(PrivateRoute);
